@@ -5,12 +5,12 @@ export const habitsMutations = {
     async addHabit(_, { habit }) {
       try {
         const newHabit = await Habits.create({
-          ...habit,
+          ...habit
         });
         return newHabit;
       } catch (e) {
         console.log(e);
       }
-    },
-  },
+    }
+  }
 };

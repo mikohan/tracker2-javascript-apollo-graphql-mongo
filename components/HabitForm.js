@@ -13,15 +13,16 @@ const ADD_HABIT = gql`
 
 const HabitForm = () => {
   const [addHabit] = useMutation(ADD_HABIT);
+
   return (
     <Form
-      onSubmit={(data) => {
+      onSubmit={data => {
         addHabit({
-          varables: {
+          variables: {
             habit: {
-              name: data.habit,
-            },
-          },
+              name: data.habit
+            }
+          }
         });
       }}
     >
