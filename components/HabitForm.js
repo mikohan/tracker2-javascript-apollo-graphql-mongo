@@ -12,17 +12,19 @@ const ADD_HABIT = gql`
 `;
 
 const HabitForm = () => {
-  const [addHabit] = useMutation(ADD_HABIT);
+  const [addHabit] = useMutation(ADD_HABIT, {
+    refetchQueries: ['getHabits'],
+  });
 
   return (
     <Form
-      onSubmit={data => {
+      onSubmit={(data) => {
         addHabit({
           variables: {
             habit: {
-              name: data.habit
-            }
-          }
+              name: data.habit,
+            },
+          },
         });
       }}
     >
